@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/12 12:03:51 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/12 13:51:23 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/29 14:59:11 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/13 12:38:46 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 
 char	*ft_strtrim(char const *s)
 {
-	size_t	start;
-	size_t	len;
+	char	*new_s;
+	int		before_s;
+	int		after_s;
+	int		i;
 
 	if (!s)
 		return (NULL);
-	start = 0;
-	while ((s[start] == ' ' || s[start] == '\n' || s[start] == '\t'))
-		start++;
-	if (s[start] == '\0')
-		return (ft_strdup(s + start));
-	len = ft_strlen(s) - 1;
-	while ((s[len] == ' ' || s[len] == '\t' || s[len] == '\n') && len > 0)
-		len--;
-	return (ft_strsub(s, start, len - start + 1));
+	i = -1;
+	before_s = 0;
+	after_s = 0;
+	while (ft_isspace(*(s + ++i)))
+		before_s++;
+	while (*(s + i++))
+		after_s = ft_isspace(*(s + i - 1)) ? after_s + 1 : 0;
+	new_s = ft_strnew(ft_strlen(s) - after_s - before_s);
+	if (!new_s)
+		return (NULL);
+	return (ft_strncpy(new_s, s + before_s, ft_strlen(s) - after_s - before_s));
 }

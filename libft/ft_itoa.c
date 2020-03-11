@@ -5,42 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/12 12:21:45 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/13 15:18:35 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/06/08 07:57:44 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/08/11 09:52:07 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_get_len(int n)
+static size_t	num_len(int n)
 {
-	size_t l;
+	size_t			len;
 
-	l = 1;
+	len = 1;
 	while (n /= 10)
-		l++;
-	return (l);
+		len++;
+	return (len);
 }
 
 char			*ft_itoa(int n)
 {
-	char			*str;
-	size_t			len;
-	unsigned int	tmp;
+	char			*s;
+	size_t			nlen;
+	int				number;
 
-	len = ft_get_len(n);
-	tmp = n;
+	nlen = num_len(n);
+	number = n;
 	if (n < 0)
 	{
-		tmp = -n;
-		len++;
+		number = -n;
+		nlen++;
 	}
-	if (!(str = ft_strnew(len)))
+	if (!(s = ft_strnew(nlen)))
 		return (NULL);
-	str[--len] = tmp % 10 + '0';
-	while (tmp /= 10)
-		str[--len] = tmp % 10 + '0';
+	s[--nlen] = number % 10 + '0';
+	while (number /= 10)
+		s[--nlen] = number % 10 + '0';
 	if (n < 0)
-		str[0] = '-';
-	return (str);
+		*(s + 0) = '-';
+	return (s);
 }

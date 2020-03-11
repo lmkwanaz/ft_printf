@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ex_fun.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 17:12:07 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/08/26 15:33:34 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/06/10 09:49:02 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:19:20 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int		ft_atoi_a(char **str)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	int l;
-	int m;
-	int r;
-
-	l = 0;
-	m = 0;
-	r = 1;
-	while (48 <= (*str)[m] && (*str)[m] <= '9')
-	{
-		l *= 10 + (*str)[m] - 48;
-		m++;
-	}
-	(*str) = &(*str)[m];
-	return (l * r);
+	del((*alst)->content, (*alst)->content_size);
+	free(*alst);
+	*alst = NULL;
 }

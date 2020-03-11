@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr_a.c                                      :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/26 14:48:33 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/08/26 14:50:10 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/06/05 14:24:14 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/08/11 13:05:34 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char	ft_strchr_a(char *str, int c)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	char *ptr;
+	char *memdup;
 
-	ptr = str;
-	while (*ptr != '\0')
-	{
-		if (*ptr == 99)
-			return (1);
-		ptr++;
-	}
-	if (*ptr == '\0' && c == '\0')
-		return (0);
-	return (0);
+	if (!(memdup = ft_strnew(n)))
+		return (NULL);
+	ft_strncpy(memdup, s1, n);
+	return (memdup);
 }

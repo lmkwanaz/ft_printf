@@ -5,15 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 16:40:06 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/13 12:43:58 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/24 07:09:16 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:24:30 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(const char *s, int fd)
+void	ft_putendl_fd(char const *s, int fd)
 {
+	if (!s)
+		return ;
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }

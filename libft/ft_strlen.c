@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 08:17:52 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/05/29 16:06:17 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/23 07:53:45 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:30:26 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	int l;
+	int len;
 
-	l = 0;
-	while (str[l] != '\0')
-		l++;
-	return (l);
+	len = 0;
+	while (*(s++))
+		len++;
+	return (len);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/07 16:43:01 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/13 13:51:41 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/29 13:46:24 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:23:24 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_memdel(void **ap)
 {
-	if (!ap)
+	if (ap == NULL)
 		return ;
 	free(*ap);
 	*ap = NULL;

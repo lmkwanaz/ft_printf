@@ -5,20 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/27 11:29:46 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/05/27 12:28:09 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/22 10:43:08 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:38:28 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
-	unsigned char l;
-
-	if (c >= 97 && c <= 122)
-		l = c - 32;
-	else
-		return (c);
-	return (l);
+	if (ft_islower(c))
+		return (c -= 32);
+	return (c);
 }

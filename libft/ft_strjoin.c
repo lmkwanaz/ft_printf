@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/11 16:29:15 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/13 14:15:54 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/29 14:54:30 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/08/11 13:24:35 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,13 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		l;
-	int		m;
-	int		jj;
-	char	*str;
+	char *r_str;
 
-	l = 0;
-	m = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	jj = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc(sizeof(char) * (jj + 1));
-	if (!str)
+	r_str = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	if (!r_str)
 		return (NULL);
-	while (s1[l] != '\0')
-	{
-		str[l] = s1[l];
-		l++;
-	}
-	while (s2[m] != '\0')
-	{
-		str[l + m] = s2[m];
-		m++;
-	}
-	str[l + m] = '\0';
-	return (str);
+	ft_strcpy(r_str, s1);
+	return (ft_strcat(r_str, s2));
 }

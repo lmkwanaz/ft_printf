@@ -5,25 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 11:05:29 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/17 00:27:35 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/29 14:23:50 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:29:00 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *s))
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned char l;
+	size_t i;
 
-	l = 0;
-	if (!s || !f)
-	{
-		return ;
-	}
-	while (s[l] != '\0')
-	{
-		f(l, &s[l]);
-		l++;
-	}
+	i = -1;
+	if (s && f)
+		while (*(s + ++i))
+			f(i, s + i);
 }

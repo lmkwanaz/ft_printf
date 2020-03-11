@@ -5,27 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/27 15:28:11 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/13 11:42:59 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/29 07:06:43 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/13 12:36:36 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	size_t	l;
-	size_t	m;
+	size_t i;
+	size_t j;
 
-	l = 0;
-	while (l < n && s1[l] != '\0')
+	if (!*needle)
+		return ((char *)haystack);
+	i = 0;
+	while (haystack[i])
 	{
-		m = 0;
-		while (l + m < n && s1[l + m] == s2[m] && s2[m] != '\0')
-			m++;
-		if (s2[m] == '\0')
-			return ((char *)&s1[l]);
-		l++;
+		j = 0;
+		while (haystack[i + j] == needle[j] && i + j < n)
+			if (!needle[++j])
+				return ((char *)haystack + i);
+		i++;
 	}
 	return (0);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/03 16:01:00 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/06 16:40:16 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/24 07:12:55 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:26:57 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,7 @@
 
 void	ft_putstr(char const *s)
 {
-	int l;
-
-	l = 0;
 	if (!s)
 		return ;
-	while (s[l] != '\0')
-	{
-		ft_putchar(s[l]);
-		l++;
-	}
+	ft_putstr_fd(s, 1);
 }

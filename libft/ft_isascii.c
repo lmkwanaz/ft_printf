@@ -5,17 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/27 08:32:25 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/05/30 16:52:01 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/22 10:21:47 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:16:51 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	return (c >= 0 && c <= 127);
 }

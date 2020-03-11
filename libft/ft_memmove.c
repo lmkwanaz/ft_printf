@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/04 15:59:40 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/16 21:19:17 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/26 13:32:30 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:23:34 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *l;
-	char *m;
+	size_t i;
 
-	l = (char*)dst;
-	m = (char*)src;
-	if (m < l)
-		while (len--)
-		{
-			l[len] = m[len];
-		}
+	if (src < dst)
+		ft_memcpy(dst, src, len);
 	else
-		ft_memcpy(l, m, len);
+	{
+		i = 0;
+		while (i < len)
+		{
+			((char *)dst)[i] = ((char *)src)[i];
+			i++;
+		}
+	}
 	return (dst);
 }

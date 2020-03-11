@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_isupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/24 09:20:58 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/08/24 17:11:32 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/22 08:59:25 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:17:59 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-char		*ft_strdup(const char *src)
+int	ft_isupper(int c)
 {
-	size_t	n;
-	char	*dst;
-
-	n = ft_strlen(src);
-	dst = (char*)malloc(sizeof(const char) * (n + 1));
-	if (dst)
-		ft_memcpy(dst, src, n + 1);
-	return (dst);
+	return (c >= 65 && c <= 90);
 }

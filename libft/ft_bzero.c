@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/30 11:59:25 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/05/31 14:29:04 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/26 12:49:13 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:16:10 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	int		m;
-	char	*str;
-
-	m = 0;
-	str = (char *)s;
-	while (n > 0)
-	{
-		str[m] = 0;
-		n--;
-		m++;
-	}
+	ft_memset(s, 0, n);
 }

@@ -5,20 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/27 09:54:11 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/05/27 12:29:01 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/22 10:57:40 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:38:12 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_tolower(int c)
+int	ft_tolower(int c)
 {
-	unsigned char l;
-
-	if (c >= 65 && c <= 90)
-		l = c + 32;
-	else
-		return (c);
-	return (l);
+	if (ft_isupper(c))
+		return (c += 32);
+	return (c);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/08 09:43:18 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/08 11:05:39 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/29 14:20:55 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:27:53 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,8 @@
 
 void	ft_strclr(char *s)
 {
-	size_t m;
-	size_t len;
-
-	m = 0;
-	if (!s)
-	{
+	if (s == NULL)
 		return ;
-	}
-	len = ft_strlen(s);
-	while (len > m)
-	{
-		s[m] = '\0';
-		m++;
-	}
+	while (*s)
+		*(s++) = 0;
 }

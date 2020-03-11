@@ -5,69 +5,73 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/12 13:52:43 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/13 17:33:29 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/29 14:56:18 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/08/11 07:54:55 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	size_t	ft_num_words(char const *s, char c)
+static int		ft_search_word(const char *str, int i, char **new_s, char c)
 {
-	size_t i;
-	size_t words;
+	int		w_len;
+	int		c_detect;
 
-	i = 0;
-	words = 0;
-	while (s[i])
+	c_detect = 0;
+	w_len = 0;
+	while (*str == c)
 	{
-		if (s[i] == c)
-			while (s[i] == c)
-				i++;
-		if (s[i])
-		{
-			words++;
-			while (s[i] && s[i] != c)
-				i++;
-		}
+		str++;
+		c_detect++;
 	}
-	return (words);
+	while (str[w_len] && str[w_len] != c)
+		w_len++;
+	if (w_len > 0)
+	{
+		new_s[i] = ft_strnew(w_len);
+		ft_strncpy(new_s[i], str, w_len);
+	}
+	return (c_detect + w_len);
 }
 
-static	size_t	ft_num_char(char const *s, char c)
+static int		ft_words_nbr(const char *str, int i, char c)
 {
-	size_t i;
-
-	i = 0;
-	while (s[i] && s[i] != c)
+	while (*str == c)
+		str++;
+	while (*str)
+	{
+		while (*str && *str != c)
+			str++;
+		while (*str == c)
+			str++;
 		i++;
+	}
 	return (i);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
-	char	**str;
-	size_t	i;
-	size_t	x;
+	int		w_len;
+	char	**new_s;
+    char    **tmp;
+	int		i;
+	int		wordcount;
 
-	i = 0;
-	x = 0;
 	if (!s)
 		return (NULL);
-	str = (char **)malloc(sizeof(char *) * ft_num_words(s, c) + 1);
-	if (str == NULL)
+	wordcount = ft_words_nbr(s, 0, c);
+	tmp = (char **)ft_memalloc((wordcount + 1) * sizeof(char *));
+	if (!tmp)
 		return (NULL);
-	while (s[i])
+	i = 0;
+	w_len = 0;
+	while (*s)
 	{
-		if (s[i] && s[i] != c)
-		{
-			str[x] = ft_strsub(s, i, ft_num_char(&s[i], c));
-			x++;
-			i = i + ft_num_char(&s[i], c);
-		}
-		while (s[i] && s[i] == c)
-			i++;
+		w_len = ft_search_word(s, i++, tmp, c);
+		s += w_len;
 	}
-	str[x] = NULL;
-	return (str);
+	tmp[wordcount] = 0;
+    new_s = tmp;
+    free(tmp);
+	return (new_s);
 }

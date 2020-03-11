@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/07 17:03:08 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/13 16:20:51 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/29 14:11:37 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/08/11 13:01:04 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 char	*ft_strnew(size_t size)
 {
-	return ((char*)ft_memalloc(size + 1));
+	return ((char *)ft_memalloc(sizeof(char) * (size + 1)));
 }

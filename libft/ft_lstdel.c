@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/25 10:32:15 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/08/25 11:03:25 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/06/10 09:39:20 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:19:02 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-size_t		ft_strlen(const char *s)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int l;
-
-	l = 0;
-	if (s != NULL)
-		while (s[l])
-			l++;
-	return (l);
+	if ((*alst)->next)
+		ft_lstdel(&(*alst)->next, del);
+	ft_lstdelone(&(*alst), del);
 }

@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/24 09:40:26 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/08/24 17:10:09 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/06/08 17:35:16 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:18:50 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_strdel(char **str)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	if (str != 0)
-	{
-		free(*str);
-		*str = NULL;
-	}
+	new->next = *alst;
+	*alst = new;
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/07 15:04:44 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/13 13:49:33 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/06/05 14:08:18 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/08/12 07:19:50 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 void	*ft_memalloc(size_t size)
 {
-	void *r;
+	void *alloc;
 
-	r = malloc(size);
-	while (!r)
-	{
+	alloc = malloc(size);
+	if (!alloc)
 		return (NULL);
-	}
-	ft_bzero(r, size);
-	return (r);
+	ft_bzero(alloc, size);
+	return (alloc);
 }

@@ -5,33 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/30 08:54:04 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/14 09:26:58 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/31 17:43:56 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:30:11 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t count;
-	size_t or;
+	size_t i;
+	size_t d_size;
+	size_t s_size;
 
-	or = dstsize;
-	count = ft_strlen(dst) + ft_strlen(src);
-	while (*dst != '\0' && dstsize > 0)
-	{
-		dst++;
-		dstsize--;
-	}
-	if (dstsize == 0)
-		return (ft_strlen(src) + or);
-	while (*src != '\0' && dstsize > 1)
-	{
-		*dst++ = *src++;
-		dstsize--;
-	}
-	*dst = 0;
-	return (count);
-	return (0);
+	i = 0;
+	s_size = 0;
+	while (dst[i])
+		i++;
+	while (src[s_size])
+		s_size++;
+	d_size = i;
+	while (*src && i + 1 < size)
+		dst[i++] = *(src++);
+	dst[i] = 0;
+	return (s_size + ((d_size > size) ? size : d_size));
 }

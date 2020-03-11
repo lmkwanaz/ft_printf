@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmkwanaz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/07 17:08:55 by lmkwanaz          #+#    #+#             */
-/*   Updated: 2018/06/13 13:53:32 by lmkwanaz         ###   ########.fr       */
+/*   Created: 2018/05/29 14:12:30 by lmkwanaz          #+#    #+#             */
+/*   Updated: 2018/06/12 07:28:20 by lmkwanaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	ft_strdel(char **as)
 {
-	if (!as)
-		return ;
-	ft_memdel((void**)as);
+	ft_memdel((void **)as);
 }
